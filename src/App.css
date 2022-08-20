@@ -1,0 +1,141 @@
+body{
+  flex-direction: column;
+  font-family: Arial, "Helvetica Neue", sans-serif;
+  color: #888888;
+}
+
+header{
+  background-color: #707070;
+  background-image: url(./assets/Wave.JPG);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  height: 400px;
+  width: 98.5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+}
+
+h1,h2,h3,h4,h5{
+  margin: 0
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: end;
+  gap: 5vw;
+}
+
+main{
+  display: flex;
+  justify-content: center;
+}
+
+.sec1{
+  display: flex;
+  margin-left: 15vw;
+  gap:10vw
+}
+
+.text1{
+  width: 30vw;
+}
+
+form{
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+}
+
+.textInput{
+  width: 100%;
+  height: 30px;
+  padding: 0;
+  border: 1px, solid, black
+}
+
+h1{
+  font-size: 40px;
+}
+
+h3{
+  font-size: 20px;
+}
+
+h4{
+  font-size: 14px;
+}
+
+p{
+  font-size: 12px;
+}
+
+.titleRelative{
+  position: relative;
+  left: 40%;
+  top: -20px;
+  background-color: white;
+  width: 15vw;
+  height: 10vh;
+  text-align: center;
+}
+
+hr{
+  width:80vw;
+}
+
+.CardContainer{
+  display: grid;
+  grid-template-columns: 16vw 16vw 16vw 16vw;
+  gap: 4vw;
+  margin-left: 15vw;
+  margin-bottom: 4vw;
+}
+
+.card{
+  width: 13vw;
+}
+
+.productName{
+  font-size: 14px;
+}
+
+.productDescr{
+  font-size:12px ;
+  margin: 0;
+}
+
+.precoDesc{
+  font-size: 16px;
+  margin: 0
+}
+
+.productImg{
+  border: 1px solid #707070;
+  width: 13vw
+}
+
+.hidden{
+  display: none;
+}
+
+.buttonProduct{
+  width: 16vw;
+}
+
+.buttonSec{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
