@@ -21,9 +21,8 @@ export function ButtonProduct(props){
 export function Input(props){
     const name = props.nameInput
 
-
     return(
-        <input className={props.className} id={props.id} type={props.type} name={name}></input>
+        <input className={props.className} onChange={props.valida} id={props.id} type={props.type} name={name}></input>
     )
 }
 
@@ -59,7 +58,7 @@ export function CardContainer (props){
     const [apiInfo, setApiInfo] = useState([])
     
     useEffect(()=>{
-        consumeApi("https://frontend-intern-challenge-api.iurykrieger.now.sh/products?page=1")
+        consumeApi(props.url)
         .then((resp)=>{
             setApiInfo([...resp.products])
         })

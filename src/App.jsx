@@ -1,11 +1,19 @@
 import { useState } from 'react'
 import './App.css'
 import {Button, Label, Input, InputRadio, CardContainer, ButtonProduct} from "./components/components"
+import {validateName , validateCPF , validateEmail} from "./service/validate.js"
 
 function App() {
   const [nameOfClass, setNameOfClass] = useState("hidden")
   const [label, setLabel] = useState("Mais Produtos Aqui !")
-    
+  const [status, setStatus] = useState("")
+  const [nome, setNome] = useState(false)
+  const [email, setEmail] = useState(false)
+  const [nomeAmigo, setNomeAmigo] = useState(false)
+  const [emailAmigo, setEmailAmigo] = useState(false)
+  const [cpf, setCPF] = useState(false)
+  const [submit, setSubmit] = useState("")
+
   return (
     <>
     <header>
@@ -45,18 +53,35 @@ function App() {
           </section>
           <form>
             <Label label="Seu Nome" nameInput="nome" id="nameUser"  />
-            <Input nameInput="nome" type="text" className="textInput"/>
+            <Input nameInput="nome" type="text" className="textInput" valida={(e)=>{
+              const testeNome = validateName(e.target.value)
+              setNome(testeNome)
+            }}/>
             <Label label="E-mail" nameInput="E-mail" />
-            <Input nameInput="E-mail" type="text" className="textInput"/>
+            <Input nameInput="E-mail" type="text" className="textInput" valida={(e)=>{
+              const testeEmail = validateEmail(e.target.value)
+              setEmail(testeEmail)
+            }}/>
             <Label label="CPF" nameInput="CPF" />
-            <Input nameInput="CPF" type="text" className="textInput"/>
+            <Input nameInput="CPF" type="text" className="textInput" valida={(e)=>{
+              const testeCPF = validateCPF(e.target.value)
+              setCPF(testeCPF)
+            }}/>
             <div>
               <InputRadio nameInput="gender" type="radio" value="Masculino"/>
               <Label label="Masculino" nameInput="gender" />
               <InputRadio nameInput="gender" type="radio" />
               <Label label="Feminino" nameInput="gender"/>
             </div>
-            <Button label="Enviar" />
+            <ButtonProduct label="Enviar" callback={(e)=>{
+              e.preventDefault()
+              if(nome == true && cpf == true && email == true){
+                setSubmit("Requisição Enviada com Sucesso")
+              }else{
+                setSubmit("Sua Requisição falhou verifique se os campos estão preenchidos corretamente")
+              }
+            }}/>
+            <span>{submit}</span>
           </form>
         </div>
         <section className='lineback'>
@@ -66,7 +91,7 @@ function App() {
           <h3 className='titleRelative'>Sua Seleção Especial</h3>
         </section>
         <CardContainer url="https://frontend-intern-challenge-api.iurykrieger.now.sh/products?page=1" className="CardContainer"/>
-        <CardContainer url="https://frontend-intern-challenge-api.iurykrieger.now.sh/products?page=2" className={nameOfClass}/>
+      <CardContainer url="https://frontend-intern-challenge-api.iurykrieger.now.sh/products?page=2" className={nameOfClass}/>
         <section className='buttonSec'>
           <ButtonProduct className="buttonProduct" label={label} callback={()=>{
             if(nameOfClass == "hidden"){
@@ -78,8 +103,46 @@ function App() {
             }
             }}/>
         </section>
-        
+        <section className='lineback'>
+          <br></br>
+          <br></br>
+          <hr></hr>
+          <h3 className='titleRelative'>Compartilhe a novidade</h3>
+        </section>
+        <section className='secFormsAmigo'>
+          <form className='formsAmigo'>
+            <div className='CamposFA'>
+              <div className='InputAmigo'>
+                <Label label="Nome do Seu Amigo" nameInput="nomeAmigo" id="friendUser" />
+                <Input nameInput="nome" type="text" className="textInput" valida={(e) =>{
+                  setNomeAmigo(validateName(e.target.value))  
+                }} />
+              </div>
+              <div className='InputAmigo'>
+                <Label label="E-mail" nameInput="E-mail" />
+                <Input nameInput="E-mail" type="text" className="textInput" valida={(e) =>{
+                  setEmailAmigo(validateEmail(e.target.value))  
+                }} />
+              </div>
+            </div>
+            <ButtonProduct className="buttonProduct" label="Enviar agora" callback={(e) =>{
+              e.preventDefault()
+              if(nomeAmigo && emailAmigo){
+                setStatus("Requisição enviada com sucesso")
+              }else{
+                setStatus("Sua Requisição falhou verifique se os campos estão preenchidos corretamente")
+              }
+            }}/>
+          <span>{status}</span>
+          </form>
+        </section>
       </main>
+      <footer>
+      <br></br>
+        <p className='footer'>
+          Testando suas habilidades em HTML, CSS e JS.<br></br> Linx Impulse <br></br> 2019
+        </p>
+      </footer>
     </>
   )
 }

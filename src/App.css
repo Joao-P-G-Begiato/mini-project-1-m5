@@ -139,3 +139,46 @@ hr{
   align-items: center;
   justify-content: center;
 }
+
+.secFormsAmigo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.formsAmigo{
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CamposFA{
+  display: flex;
+  flex-direction: row;
+  gap: 4vw;
+}
+
+.InputAmigo{
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+}
+
+.footer{
+  font-size: 12px;
+  
+}
+
+footer{
+  background-image: url(./assets/Wave2.JPG);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:5vh;
+  height: 30vh;
+
+}
