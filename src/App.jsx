@@ -19,9 +19,9 @@ function App() {
     <header>
       <h3>uma seleção de produtos</h3>
       <h1>especial para você</h1>
-      <h4>
+      <p>
         Todos os produtos desta lista foram selecionados a partir da sua navegação. Aproveite!
-      </h4>
+      </p>
       <nav>
         <Button label="Conheça a Linx" />
         <Button label="Ajude o algorítimo" />

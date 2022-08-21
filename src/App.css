@@ -73,7 +73,7 @@ h3{
   font-size: 20px;
 }
 
-h4{
+p{
   font-size: 14px;
 }
 
@@ -180,5 +180,87 @@ footer{
   justify-content: center;
   gap:5vh;
   height: 30vh;
+}
 
+@media (max-width:800px) {
+  header{
+
+  }
+
+  h1{
+    font-size: 32px;
+  }
+  
+  h3{
+    font-size: 16px;
+  }
+  
+  p{
+    font-size: 14px;
+    margin-left: 10px;
+  }
+
+  .sec1{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .text1{
+    width: 60vw;
+  }
+  
+  form{
+    width: 60vw;
+  }
+
+  nav{
+    display: grid;
+    grid-template-columns: 40vw 40vw;
+  }
+
+  .CardContainer{
+    display: grid;
+    grid-template-columns: 64vw;
+    gap: 4vw;
+    margin-left: 15vw;
+    margin-bottom: 4vw;
+  }
+  
+  .card{
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .productImg{
+    width: 20vw
+  }
+
+  .titleRelative{
+    left: 35vw;
+    width: 30vw;
+    top: -20px
+  }
+  
+  .buttonProduct{
+    width: 200px
+  }
+
+  .secFormsAmigo{
+    width: 100vw
+  }
+
+  .formsAmigo{
+    width: 100%;
+  }
+
+  .CamposFA{
+    flex-direction: column;
+    align-content: center;
+    width: 80%
+  }
+
+  .InputAmigo{
+    width: 100%;
+  }
 }
